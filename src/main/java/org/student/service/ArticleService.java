@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.student.domain.Article;
 import org.student.mapper.ArticleMapper;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,6 +23,7 @@ public class ArticleService {
     }
 
     public void createArticle(Article article) {
+        article.setLastUpdate(new Date());
         articleMapper.createArticle(article);
     }
 
