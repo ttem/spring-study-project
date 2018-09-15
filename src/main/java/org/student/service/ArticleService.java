@@ -31,7 +31,12 @@ public class ArticleService {
         articleMapper.deleteArticle(id);
     }
 
-    public void updateShop(Article article){
+    public void updateArticle(Article article){
+        article.setLastUpdate(new Date());
         articleMapper.updateArticle(article);
+    }
+
+    public int getArticlesCount() {
+        return articleMapper.getArticlesCount();
     }
 }

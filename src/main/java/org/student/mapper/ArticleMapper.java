@@ -46,9 +46,11 @@ public interface ArticleMapper {
     @Delete("DELETE FROM article WHERE id=#{id}")
     void deleteArticle(Integer id);
 
-    @Update("UPDATE article SET title=#{title}, lastUpdate=#{lastUpdate}, author_id_fk=#{author.id}, " +
+    @Update("UPDATE article SET title=#{title}, last_update=#{lastUpdate}, author_id_fk=#{author.id}, " +
             "article_topic_id_fk=#{articleTopic.id}, content=#{content}  " +
             "WHERE id=#{id}")
     void updateArticle(Article article);
 
+    @Select("SELECT COUNT(*) FROM article")
+    int getArticlesCount();
 }
