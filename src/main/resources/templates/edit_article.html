@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<head>
+    <head>
+        <title>Edit article</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    </head>
+<body>
+<a href="/articles"> Back</a>
+<div class="row">
+
+    <form class="col-md-2 col-md-offset-5" action="#" th:action="@{/articles/edit}" method="post"
+          th:object="${article}">
+        <h2>Edit article:</h2>
+        <input style="display:none" type="text" th:field="*{id}" name='id' />
+
+        Title:
+        <td><input class="form-control" type="text" th:field="*{title}" name='title'/></td>
+
+        Content:
+        <td><textarea class="form-control" type="text" th:field="*{content}" name='content'/></td>
+
+        Topic:
+        <td><select class="form-control" th:field="*{articleTopic.id}" name="articleTopic" style="width:130px">
+            <div th:each="topic : ${articleTopics}">
+                <option th:value="${topic.id}"><span th:text="${topic.name}"></span>
+                </option>
+            </div>
+        </select></td>
+
+        Author:
+        <td><select class="form-control" th:field="*{author.id}" name="author" style="width:130px">
+            <div th:each="author : ${authors}">
+                <option th:value="${author.id}"><span th:text="${author.surname}"></span>
+                </option>
+            </div>
+        </select></td>
+        <button type="submit" value="Submit" class="btn">Submit</button>
+
+    </form>
+</div>
+</body>
+</html>
