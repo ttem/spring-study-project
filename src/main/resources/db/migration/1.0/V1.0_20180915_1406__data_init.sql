@@ -7,10 +7,6 @@ INSERT INTO city (name) VALUES ('Radomsko');
 INSERT INTO author (surname, city_id_fk) VALUES ('Sienkiewicz', 2);
 INSERT INTO author (surname, city_id_fk) VALUES ('Reymont', 3);
 
---Table: author
-INSERT INTO author (surname, city_id_fk) VALUES ('Sienkiewicz', 2);
-INSERT INTO author (surname, city_id_fk) VALUES ('Reymont', 3);
-
 --Table: article_topic
 INSERT INTO article_topic (name) VALUES ('Sztuka');
 INSERT INTO article_topic (name) VALUES ('Kultura');
@@ -18,7 +14,7 @@ INSERT INTO article_topic (name) VALUES ('Kultura');
 --Table: article
 INSERT INTO article (title, last_update, author_id_fk, article_topic_id_fk, content)
 VALUES (
-  'Naglowek 1',
+  'Naglowek',
   CURRENT_TIMESTAMP(),
   1,
   1,
@@ -27,7 +23,7 @@ VALUES (
 
 INSERT INTO article (title, last_update, author_id_fk, article_topic_id_fk, content)
 VALUES (
-  'Naglowek 2',
+  'Naglowek',
   CURRENT_TIMESTAMP(),
   2,
   2,
